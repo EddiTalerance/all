@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>  //если мы используем this, то функции надо прописывать через function, а не стрелочные функции
+        const bmw = {  //создание объекта
+            name: 'BMW',
+            color: 'black',
+            hp: 340,
+            doors: 2,
+            isStarted: false,
+            engine: {
+                hp: 340,
+                capacity: 3,
+                mileage: 60000
+            },
+            start: function() {  
+                this.isStarted = true;
+            },
+            openDoor(door) {
+                console.log('Открываем дверь', door);
+            }
+        }
+
+        bmw.stop = function() {
+            this.isStarted = false;
+        }
+
+        bmw.start();
+
+        console.log(bmw.isStarted);
+    </script>
+</body>
+</html>

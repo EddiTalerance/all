@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = ' Hello, World ';
+
+        console.log(str.length);  //вывод количества символов в строке
+        console.log(str[0]);  //Вывод порядковой буквы
+
+        let lowerStr = str.toLowerCase();
+        let upperStr = str.toUpperCase();
+        console.log(lowerStr);
+        console.log(upperStr);
+
+        console.log(str.indexOf('o'));  //Входил ли символ в строку
+        console.log(str.lastIndexOf('o'));  //последний индекс буквы
+
+        console.log(str.slice(0, -2));  // Выводит элементы из массива. оставляет только с 0 по 5 индекс. При вводе одного отрицательного значения начинает считать индексы с конца (-6) выведет последние 6 символов. Если первый индекс больше второго, выводит пустую строчку.
+
+        console.log(str.substring(5, 0));  // Выводит элементы из массива. Не поддерживает отрицательные инлексы, он приравнивает их к 0, при указании первого индекса больше второго меняет их местами
+
+        console.log(str.replace('World', 'Mars'));  //Замена
+
+        console.log(str.split(' '));  //создает массив из строчки, в кавычках указывается символ по которому будет происходить деление на эллементы массива, сам элемент в кавычках не добавляется в массив
+
+        console.log(str.trim(' '));  //удаляет все пробелы, знаки табуляции с начала и конца строки
+
+        console.log(str.startsWith(' Hello')); //определяет с этого ли символа или выражения начинается строка. Выводит тру или фолс
+
+        console.log(str.endsWith(' hello'));  //определяет каким символом заканчивается строка
+
+        function strA() {
+            let a = str.trim('');
+            let b = a.split(', ');
+            console.log(a, b);
+        }
+
+        strA();
+    </script>
+</body>
+</html>

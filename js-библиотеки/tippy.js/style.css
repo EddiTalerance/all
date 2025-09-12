@@ -1,0 +1,17 @@
+.tippy-tooltip.new-style-theme {
+  background-color: tomato;
+  color: yellow;
+}
+
+.tippy-tooltip.new-style-theme[data-placement^='top'] .tippy-arrow {
+  border-top-color: tomato;
+}
+.tippy-tooltip.new-style-theme[data-placement^='bottom'] .tippy-arrow {
+  border-bottom-color: tomato;
+}
+.tippy-tooltip.new-style-theme[data-placement^='left'] .tippy-arrow {
+  border-left-color: tomato;
+}
+.tippy-tooltip.new-style-theme[data-placement^='right'] .tippy-arrow {
+  border-right-color: tomato;
+}

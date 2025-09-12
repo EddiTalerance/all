@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/popper.js@1"></script>
+    <script src="https://unpkg.com/tippy.js@5"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>tippy.js</title>
+</head>
+<body>
+    <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus eaque delectus est veritatis quasi voluptas necessitatibus dolor obcaecati atque laborum totam quae consectetur distinctio maiores, odit non voluptatum! Culpa, velit</p>
+    <a id="link" href="#">link</a>
+
+    <script>
+        tippy('#link', {
+         content: 'Это подсказка',
+         trigger: 'focus',
+         theme: 'new-style'
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form action="#" method="get">
+        <input type="text" placeholder="text">
+        <input type="search" placeholder="search">
+        <input type="url" placeholder="url">
+        <input type="tel" placeholder="tel">
+        <input type="email" placeholder="email">
+        <input type="number" placeholder="number">
+        <input type="color">
+        <input class="data" type="date" value="2001-03-20">
+        <input class="range" type="range" min="0" max="100" step="any">
+        <p>Value: <output id="value"></output></p>
+        <button type="submit" style="text-transform: uppercase;">submit</button>
+    </form>
+
+    <script>
+        // const inputEls = document.querySelectorAll('input');
+        // const buttonEl = document.querySelector('button');
+        // const rangeEl = document.querySelector('.range');
+        // const valueEl = document.querySelector('#value');
+        // const dataEl = document.querySelector('.data');
+        
+        // inputEls.forEach(element => {
+        //     buttonEl.addEventListener('click', function (e) {
+        //         if (inputEls.values == '') {
+        //             e.preventDefault;
+        //             console.log(element);
+        //         };
+        //     });
+        // });
+
+        // valueEl.textContent = rangeEl.value;
+        // rangeEl.addEventListener('click', function (e) {
+        //     e.preventDefault();
+        //     console.log(dataEl.value);
+        // })
+    </script>  -->
+
+    <form>
+        <input class="data" type="date" value="2025-08-07">
+        <input id="range" type="range" min="0" max="100" step="1">  <!-- step="any" может быть любое, либо задается шаг -->
+        <p>value: <output id="value"></output></p>
+        <button class="btn" type="submit">Отправить</button>
+    </form>
+
+    <script>
+        const value = document.querySelector('#value');
+        const input = document.querySelector('#range'); 
+        value.textContent = input.value;
+        input.addEventListener('input', (event) => {
+            value.textContent = event.target.value;
+        })
+
+        const dataEl = document.querySelector('.data');
+        const btnEl = document.querySelector('.btn');
+        btnEl.addEventListener('click', function (e) {
+            e.preventDefault();
+            console.log(dataEl.value);
+        })
+    </script>
+</body>
+</html>

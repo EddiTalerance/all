@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const person = {
+            name: 'Петя',
+            getName: function () {
+            console.log(`Привет, меня зовут ${this.name}`);
+            }
+        }
+
+        const person2 = Object.create(person);  //создание нового объекта из уже существующего с изменением необходимых параметров
+        person2.name = 'Вася';
+
+        person.getName();
+        person2.getName();
+
+        // object.assign()  Объеденяет 2 объекта с перезаписыванием повторяющихся последним
+
+        const a = {
+            a: 1,
+            b: 2,
+            c: 3
+        }
+
+        const b = {
+            d: 4,
+            e: 5,
+            a: 6
+        }
+
+        console.log(a);
+        const object = Object.assign(a, b);
+        console.log(object);
+
+        // object.entries()  Возвращает массив массивов, состоящий из пар ключ-значение, в основном используется с массивами. Делает каждый ключ-значение в отдельный массив
+
+        const car = {
+            name: 'bmw',
+            hp: 280,
+            logo: 'forvard'
+        }
+
+        const pair = Object.entries(car);
+        console.log(pair);
+
+        //object.freez()
+
+        // Object.freeze(car);
+        // car.name = 'Audi';
+        // console.log(car);
+
+        //object.keys() Возвращает название всех ключей в объекте
+
+        //object.values() Возвращает не ключи, а их значения
+
+                const price = {
+            'Маленький принц': 1550,
+            'Белоснежка': 1250,
+            'Маша и медведь': 950
+        }
+
+        let key = [];
+        let value = []
+
+        Object.keys(price).forEach(key1 => {
+            key.push(key1);
+        });
+        console.log(key);
+
+        Object.values(price).forEach(value1 => {
+            value.push(value1);
+        });
+        console.log(value);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        getCookie = () => {
+            return document.cookie.split('; ').reduce((acc, item) => {
+                const [key, value] = item.split('=');
+                acc[decodeURIComponent(key)] = decodeURIComponent(value);
+
+                return acc
+            }, {});  //делаем массив из куков
+        }
+
+        document.cookie = 'IIIhhhh=445544'  //добавление куков ключ=значение
+    </script>
+</body>
+</html>

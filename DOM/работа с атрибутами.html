@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <img class="photo" src="photo.png" alt="photo" title="text">
+        <button class="btn" data-clicks="0">Нажми меня</button>
+    </div>
+
+    <script>
+        const photoEl = document.querySelector('.photo');
+
+        console.log(photoEl.getAttribute('src'));  //выбирает атрибут
+        photoEl.setAttribute('src', 'newphoto.png');  //Меняет атрибут. СНачала выбираем атрибут, затем пишем новое значение
+        console.log(photoEl.getAttribute('src'));
+        photoEl.removeAttribute('title')  //удаляет атрибут
+
+        console.log(photoEl.hasAttribute('title'))  //тру или фолс Проверяет наличие или отсутствие атрибута
+        console.log(photoEl.hasAttribute('class'))  //тру или фолс Проверяет наличие или отсутствие атрибута(не значения атрибута, а именно сам атрибут)
+
+        const btnEl = document.querySelector('.btn');
+        let clicks = btnEl.dataset.clicks;  //Переменная, которая будет считать количество кликов
+        console.log('Количество кликов: ' + clicks);
+        
+        
+        btnEl.onclick = function () {
+            clicks++;
+            if (clicks % 2 === 0) {
+                btnEl.style.backgroundColor = 'blue';
+            } else {
+                btnEl.style.backgroundColor = 'red';
+            }
+            btnEl.dataset.clicks = clicks;
+            console.log('Количество кликов: ' + clicks);
+            btnEl.textContent = (`Вы нажали кнопку ${clicks} раз`);
+        }
+
+        
+    </script>
+</body>
+</html>

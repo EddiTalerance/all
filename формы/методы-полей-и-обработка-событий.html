@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form class="form" action="#">
+        <input class="input" type="text">
+        <input class="input2" type="email">
+        <button type="submit">Отправить</button>
+        <button class="reset">Сбросить</button>
+    </form>
+
+    <script>
+        const inputEl = document.querySelector('.input');
+        const input2El = document.querySelector('.input2');
+        const reset = document.querySelector('.reset');
+
+        // window.addEventListener('load', function (e) {
+        //     console.log('Сайт загрузился');  //определяет что весь сайт загрузился(все окнок,window)
+        // });
+
+        // document.addEventListener('DOMContentLoaded', function (e) {
+        //     console.log('DOM');  //Определяет загрузку дом элементов
+        // });
+
+        // inputEl.addEventListener('keyup', (e) => {
+        //     console.log(`Клавиша отпущена keyup. Введите значение`, e.target.value);  //определяет что клавиша отпущена
+        // })
+
+        // inputEl.addEventListener('input', (e) => {
+        //     console.log(`Клавиша нажата input. Введите значение`, e.target.value);  //определяет что клавиша нажата
+        // })
+
+        // const formEl = document.querySelector('.form');
+
+        // formEl.addEventListener('submit', function (e) {
+        //     e.preventDefault();
+        //     console.log(`Отправили значение ${inputEl.value}`);  //определяет что отправлено из инпута
+        // });
+
+        // inputEl.addEventListener('focus', function(e) {
+        //     console.log('focus 1 формы');  //определяет что на окно инпута щелкнули
+        // })
+
+        // input2El.addEventListener('focus', function(e) {
+        //     console.log('и попали на 2 форму');  //определяет что на окно инпута щелкнули
+        // })
+
+        // inputEl.addEventListener('blur', function(e) {
+        //     console.log('ушли из первой формы');  //определяет что с окна инпута ушли
+        // })
+
+        // reset.addEventListener('click', function (e) {
+        //     formEl.reset();  //сбрасывает значение формы
+        // })
+
+
+        //Кастомизация подсказки ошибки ввода
+
+        input2El.addEventListener('invalid', function () {
+            input2El.setCustomValidity('Введите значение правильно');
+        });
+
+        input2El.addEventListener('input', function () {
+            input2El.setCustomValidity('');
+        })
+    </script>
+</body>
+</html>

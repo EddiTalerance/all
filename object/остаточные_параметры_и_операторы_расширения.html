@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const hello = (...name) => {  //Остаточный параметр
+            console.log(`Привет: ${name}`);
+        }
+        hello('Игорь', 'Матвей', 'Степан', 'Игнат');
+
+        const names = ['Игорь', 'Матвей', 'Степан', 'Игнат'];
+
+        hello(...names);
+
+        const base = {
+            doors: 4,
+            wheels: 4,
+            inStarted: false,
+            start() {
+                this.inStarted = true;
+            },
+            stop() {
+                this.inStarted = false;
+            }
+        }
+
+        const myCar = {
+            ...base,
+            color: 'red'
+        }
+
+        const object = {
+            ...base,
+            ...myCar
+        };
+
+        console.log(object);
+    </script>
+</body>
+</html>

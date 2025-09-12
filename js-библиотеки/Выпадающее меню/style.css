@@ -1,0 +1,9 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.choices__inner {
+    width: 30vw;
+}

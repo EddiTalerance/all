@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const price = {
+            'Маленький принц': 1550,
+            'Белоснежка': 1250,
+            'Маша и медведь': 950
+        }
+
+        for (const property in price) {
+            console.log(`Книга ${property} имеет цену ${price[property]}`);
+        }
+        //property- ключ
+        //price[property]- значение ключа
+
+        Object.keys(price).forEach((property) =>{
+            console.log(`Книга ${property} имеет цену ${price[property]}`);
+        })
+
+        const registr = {
+            firstName: 'Петя',
+            lastName: 'Иванов',
+            birtDate: '19.12.1990',
+            password: 'qwerty'
+        }
+
+        Object.keys(registr).forEach((field) => {
+            if (!registr[field]) {
+                console.log("Форма заполнена не верно");
+            }
+        })
+    </script>
+</body>
+</html>

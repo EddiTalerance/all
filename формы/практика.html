@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form class="form1" action="#">
+        <input class="input" type="text">
+        <button type="submit">Отправить</button>
+    </form>
+
+    <form class="form2" action="#">
+        <input class="name" type="text" required>
+        <input class="email" type="email" required>
+        <button type="submit">Отправить</button>
+    </form>
+
+    <script>
+        //1
+        const inputEl = document.querySelector('.input');
+
+        inputEl.addEventListener('input', function (e) {
+            if (inputEl.value === '1234') {
+                console.log('молодец');
+            }
+        });
+
+        //2
+        const input1El = document.querySelector('.name');
+        const inputEmail = document.querySelector('.email');
+        const form1El = document.querySelector('.form2');
+
+        form1El.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            console.log(input1El.value);
+            console.log(inputEmail.value);
+        });
+
+        //3
+        const maxLength =5;
+
+        input1El.addEventListener('input', function (e) {
+            const remainingChars = maxLength - input1El.value.length;
+            if (remainingChars === 0) {
+                console.log('Вы ввели максимальное количество символов');
+            }
+            console.log('осталось символов:', remainingChars);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .super-heading {
+            background-color: blue;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1 id="supet-heading" class="title">hello</h1>
+        <h2 class="heading">Lorem ipsum dolor sit amet.</h2>
+        <h3>Lorem, ipsum dolor.</h3>
+    </div>
+
+    <script>
+        const titleEl = document.querySelector('.title');
+        titleEl.textContent = 'New text';
+
+        titleEl.style.color = 'red';
+
+        console.log(titleEl.tagName.toLowerCase());  //выводит тэг элемента
+        console.log(`Название id: ${titleEl.id}`);  //выводит айди элемента
+        console.log(titleEl.className);  //выводит название класса элемента
+
+        //Добавление и удаление класса
+        titleEl.classList.add('super-heading');  //Добавляет класс
+        titleEl.classList.remove('super-heading');      //Удаляет класс
+        titleEl.classList.toggle('super-heading');      //Удаляет класс если он есть и добавляет если его нет
+
+        console.log(titleEl.classList.contains('title'))  //проверяет есть ли класс
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="title-1">hello</h1>
+    <h2 class="title-2">Lorem ipsum dolor sit amet.</h2>
+    <div class="content">
+        <p class="text">Lorem1 ipsum dolor, sit amet consectetur adipisicing elit. Saepe, dolores.</p>
+        <p class="text">Lorem2 ipsum dolor, sit amet consectetur adipisicing elit. Saepe, dolores.</p>
+        <p class="text">Lorem3 ipsum dolor, sit amet consectetur adipisicing elit. Saepe, dolores.</p>
+    </div>
+
+    <script>
+        const headingEl = document.querySelector('.title-2');
+        console.log(headingEl.parentNode);
+
+        console.log(headingEl.previousElementSibling);
+        console.log(headingEl.previousSibling);
+        console.log(headingEl.nextElementSibling);
+        // headingEl.nextElementSibling.textContent = 'Hello';
+
+        console.log(headingEl.nextElementSibling.nextElementSibling);
+        const contentEl = document.querySelector('.content');
+        console.log(contentEl.firstElementChild);
+        console.log(contentEl.firstChild);
+        console.log(contentEl.lastElementChild);
+    </script>
+</body>
+</html>

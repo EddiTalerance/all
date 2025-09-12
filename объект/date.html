@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        выводит дату той зоны где находится пользователь.
+    </p>
+    <script>
+        console.log(new Date());
+        console.log(new Date().getDate()); //день
+        console.log(new Date().getMonth() + 1);  //месяц, начинается с 0 как индексы в массивах
+        console.log(new Date().getYear());  //год последние 2 цифры
+        console.log(new Date().getFullYear());  //полный год
+    </script>
+    <p>Как создать собственную дату</p>
+    <script>
+        console.log(new Date(2000, 1, 24, 11, 13, 65, 47));  //год, месяц, число, час, минута, секунда, милисекунда
+        console.log(new Date('2002-04-05T14:25:17'));  //Здесь месяц начинается с 01
+        console.log(new Date('1669-04-05T14:25:17'));  //Здесь месяц начинается с 01
+    </script>
+    <p>Изменить дату</p>
+    <script>
+        console.log(new Date(new Date().setDate(5))); //если написать только одну new Date, дата будет выводиться в милисекундах
+        console.log(new Date(new Date().setMonth(5 + 1)));
+        console.log(new Date(new Date().setFullYear(2001)));
+    </script>
+    <p>Манипуляции с датами</p>
+    <script>
+        console.log(new Date() > new Date('2000-11-23'));
+        console.log(new Date(+new Date() + (1000 * 60 * 60 * 24))); //или
+        console.log(new Date(Number(new Date()) + (1000 * 60 * 60 * 24)));
+    </script>
+</body>
+</html>

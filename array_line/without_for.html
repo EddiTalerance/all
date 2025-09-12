@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app"></div>
+    <script>
+        const appEl = document.querySelector('.app');
+        let product = ['Стул', 'Стол', 'Табуретка', 'Кровать', 'Стол'];
+
+        product.forEach(element => {  //Перебор элементов
+            console.log(element);
+        });
+
+        product.forEach(element => {
+            const h3El = document.createElement('h3');
+            h3El.textContent = element;
+            const textEl = document.createElement('p');
+            textEl.textContent = 'Описание товара';
+            const priceEl = document.createElement('span');
+            priceEl.textContent = '125р.';
+            appEl.append(h3El);
+            appEl.append(textEl);
+            appEl.append(priceEl);
+        });
+
+        console.log('------ --------');
+        console.log(product.lastIndexOf('Стол'));  //Поиск с конца
+        console.log(product.indexOf('Стол'));  //Поиск с начала
+        console.log(product.includes('Стол'));  //Проверяет наличие индекса
+        console.log(product.find(item => item == 'Стул'));
+    </script>
+</body>
+</html>

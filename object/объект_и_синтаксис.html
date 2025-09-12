@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const bmwName = 'BMW';
+        const bmwHp = 340;
+        const bmwDoors = 2;
+        const bmwStart = false;
+
+        const mersedesName = 'mersedes';
+        const mersedesHp = 240;
+        const mersedesDoors = 4;
+        const mersedesStart = false;
+
+        const audiName = 'audi';
+        const audiHp = 360;
+        const audiDoors = 3;
+        const audiStart = false;
+
+        // const car = new Object()
+        const bmw = {  //создание объекта
+            name: 'BMW',
+            color: 'black',
+            hp: 340,
+            doors: 2,
+            isStarted: false
+        }
+
+        bmw.color = 'grey';
+
+        const engine = {
+            hp: 340,
+            capacity: 3,
+            mileage: 60000
+        }
+
+        bmw.engine = engine;  //добавление объекта в объект
+
+        delete bmw.hp  //удаление элемента
+        console.log(bmw.color);  //вызов элемента
+
+        const fieldName = 'color';
+
+        console.log(bmw[fieldName]);  //вызов элемента
+
+        const a = { a: 1 };
+        const b = { a: 1 };
+
+        console.log(a === b);  //когда делается объект, он записывается в свою ячейку памяти и сравниваются не объекты, а их адреса
+
+        const audi = {  //создание объекта
+            name: 'audi',
+            color: 'red',
+            hp: 340,
+            doors: 4,
+            isStarted: false
+        }
+
+        console.log(bmw.hp === audi.hp);
+    </script>
+</body>
+</html>

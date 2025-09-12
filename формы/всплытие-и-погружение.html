@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Всплытие- от дочерних элементов в родительским</p>
+    <p>погружение- от родительских элементов к дочерним</p>
+
+    <div class="outer">
+        <div class="inner">
+            <button class="button">Нажми меня</button>
+        </div>
+    </div>
+
+    <script>
+        const outerEl = document.querySelector('.outer');
+        const innerEl = document.querySelector('.inner');
+        const buttonEl = document.querySelector('.button');
+
+        outerEl.addEventListener('click', function (e) {
+            console.log('Родительский элемент всплытие');
+        }, true);  //true задает всплытие. Отрабатываются события сверху вниз
+
+        innerEl.addEventListener('click', function (e) {
+            e.stopPropagation();  //при погружении сотановится на этом элементе
+            console.log('Дочерний элемент');
+        }, true);
+
+        buttonEl.addEventListener('click', function (e) {
+            e.stopPropagation();  //Событие не отрабатывает у родительских элементов, только у дочернего
+            console.log('Целевой элемент кнопка');
+        }, true);
+    </script>
+</body>
+</html>

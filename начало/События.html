@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .blue {
+            color: blue;
+        }
+        .block {
+            width: 200px;
+            height: 200px;
+            background-color: black;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="alert('Hello!')">Hello</button>
+    <button class="btn">Sey Hello</button>
+    <button class="btnText">New text title</button>
+
+    <h1 class="title">Title first level's</h1>
+
+
+    <div class="content">
+        <button class="btnAdd">add block</button>
+    </div>
+
+<script>
+    const btnEl = document.querySelector('.btn');
+    const btnText = document.querySelector('.btnText');
+    const titleEl = document.querySelector('.title');
+    
+    btnEl.onclick = function () {
+        alert('Sey Hello!')
+    }
+
+    btnText.onclick = function () {
+        titleEl.textContent = 'New text'
+        btnText.classList.toggle('blue')
+    }
+    
+    const contentEl = document.querySelector('.content');
+    const btnAddEl = document.querySelector('.btnAdd');
+
+    const blockEl = document.createElement('div');
+    blockEl.classList.add('block');
+
+    btnAddEl.onclick = function () {
+        contentEl.append(blockEl);
+        blockEl.classList.toggle('hidden');
+    }
+</script>
+
+</body>
+</html>

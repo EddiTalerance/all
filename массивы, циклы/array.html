@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr1 = new Array();  //создание массива
+        const arr2 = [];  //так же создает массив
+
+        const products = ['стул', 'шкаф', 'комод'];
+        console.log(products[0]);  //вызов первого элемента массива
+
+        products[0] = 'стол';  //замена элемента массива
+
+        products[3] = 'новый стул'; //добавление элемента в конкретный индекс
+
+        products[6] = 'диван';
+
+        console.log(products.length);  //длина массива
+
+        products[products.length] = 'табуретка';  //создает и добавляет объект в последний индекс
+
+        products.push('сумка');  //добавление в последний элемент
+
+        products.pop();  //удаляет последний элемент в массиве
+        const lastProduct = products.pop();  //удаляет последний элемент и запоминает его
+
+        products.shift(); //удаляет первый элемент массива
+        const firstProduct = products.shift();
+        console.log(firstProduct); //удаляет и запоминает первый элемент массива
+
+        products.unshift('первый элемент');  //Добавляет первый элемент
+
+        console.log(products);
+    </script>
+</body>
+</html>

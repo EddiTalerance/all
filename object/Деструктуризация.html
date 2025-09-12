@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const registr = {
+            firstName: 'Петя',
+            lastName: 'Иванов',
+            birtDate: '19.12.1990',
+            password: 'qwerty',
+            age() {
+                console.log('Больше 18 лет');
+                this.birtDate = 25;
+            }
+        }
+
+        const {firstName, lastName, birtDate, password, age} = registr;
+
+        age()
+        console.log(registr.birtDate);
+
+
+        const arr = [1, 2, 3, 4, 5, 10];
+
+        const [one, two, three, four, five, six = 6] = arr; //если в массиве (или объекте) нет какого-то значения, то его можно присвоить по умолчанию что бы не выходило андефаинд, но когда этот элемент появляется в массиве, то значение перезаписывается 
+        console.log(two, six);
+    </script>
+</body>
+</html>

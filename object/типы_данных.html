@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        ?? оператор слияния. 
+    </p>
+    <script>
+        let under;  //значение не присвоено
+        let nullVar = null; //значение не присвоено
+        let string = ''; //значение присвоено
+        let num = 0; //значение присвоено
+        let falseVar = false; //значение присвоено
+
+        console.log(under ?? 'Результат');
+        console.log(nullVar ?? 'Результат');
+        console.log(string ?? 'Результат');
+        console.log(num ?? 'Результат');
+        console.log(falseVar ?? 'Результат');
+
+        //С сервера приходит цена. Может прийти или не прийти.
+        const price = 0;
+        const result = price ?? 'Цена не указана';
+        console.log(result);
+    </script>
+</body>
+</html>

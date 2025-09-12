@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cont">
+
+    </div>
+    <script>
+
+        // function find(arr, search) {
+        //     let result = -1;
+
+        //     for (let i = 0; i < arr.length; i++) {
+        //         if (arr[i] === search) {
+        //             result = i;
+        //             break
+        //         }
+        //     }
+
+        //     return result
+        // }
+
+        // const number = ['1', '2', '3', '4', '5'];
+
+        // const contEl = document.querySelector('.cont');
+
+        // function renderList(arr) {
+        //     for (let i = 0; i < arr.length; i++) {
+        //         const liEl = document.createElement("li");
+        //         liEl.textContent = `${i+1}. ${arr[i]}`;
+        //         listEl.append(liEl);
+        //     }
+    
+        //     document.body.append(listEl);
+            
+        //     contEl.append(listEl);
+        // }
+
+        // const listEl = document.createElement("ul");
+        
+        // const searchBtn = document.createElement('button');
+        // searchBtn.textContent = 'Найти';
+        // document.body.append(searchBtn);
+
+        // searchBtn.onclick = function () {
+        //     const search = prompt();
+
+        //  const findIndex =  find(number, search);
+
+        //     if (findIndex > -1) {
+        //         document.querySelector(`li:nth-child(${findIndex + 1})`).style.color = 'yellow';
+        //     } else {
+        //         alert('Не найдено');
+        //     }
+
+        //  console.log(findIndex);
+        // }
+
+        // renderList(number);
+
+        // const arr1 = ['1', '2', '3', '4', '5'];
+        
+        function filter(arr1, min) {
+            const result = [];
+            for(const item of arr1) {
+                if(item >= min) {
+                    result.push(item);
+                }
+            }
+            return result
+        }
+
+        // console.log(filter(arr1, 3));
+
+
+        const userAge = [11, 23, 34, 11, 12, 4, 55, 21, 23];
+        
+        function renderList(userAge) {
+            listEl.innerHTML='';  //Очистка DOM элементов
+            for (let i = 0; i < userAge.length; i++) {
+                const liEl = document.createElement('li');
+                liEl.textContent = `${i + 1}. Возраст: ${userAge[i]}`;
+                listEl.append(liEl);
+            }
+        }
+        
+        const filterBtn = document.createElement('button');
+        filterBtn.textContent='Фильтровать по возрасту';
+        document.body.append(filterBtn);
+
+        filterBtn.onclick = function () {
+            const minAge = prompt('Введите возраст');
+
+            const result = filter(userAge, minAge);
+
+            renderList(result);
+            
+
+        }
+
+        const listEl = document.createElement('ul');
+        document.body.append(listEl);
+        
+        renderList(userAge);
+
+
+    </script>
+</body>
+</html>

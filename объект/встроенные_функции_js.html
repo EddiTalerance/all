@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        isNaN()- показывает, является ли данные числом. Это не число
+        parseFloat()- функция на входе принимает строку, а возвращает число с плавающей точкой (дробное). Используется в интерент магазинах с ценами.
+        parseInt()- возвращает число без плавающей точки
+        encodeURI() и encodeURIComponent()- функции кодируют строку, заменяя символы на последовательность символов кодировки utf-8. Кодируются не все символы и все символы соответственно.
+        decodeURI() и decodeURIComponent()- декодируют
+    </p>
+    <script>
+        console.log(isNaN('jibhj'), isNaN('10')); //true, false текст не число-тру, 10 число-фолс
+        console.log(isNaN(10));
+
+        console.log(parseFloat('10.15 kjh. 5'));  //проверяет поочередно символы и как только он встечает что-то помимо числа или вторую точку, то проверка дальше не идет
+        console.log(parseFloat('kjh 11.8'));
+
+        console.log(parseInt(11.58)); //отбрасывает все что дальше точки включая точку
+        
+
+    </script>
+</body>
+</html>

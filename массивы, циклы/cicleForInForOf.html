@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cont"></div>
+    <script>
+        const contEl = document.querySelector('.cont');
+        const comment = ['Нравится', 'круто', 'класссная программа'];
+
+        for (const key in comment) {
+            console.log(key);  //подходит для выбора индексов массива
+            console.log(comment[key]);  //подходит для вывода контента из массива по ноиндексу
+            console.log((key), comment[key]);  //подходит для вывода контента из массива по ноиндексу
+        
+            if (key == 1) {
+                console.log(comment[key]);
+            }
+        }
+
+        for (const item of comment) {  //подходит для выбора значений массива
+            const h3El = document.createElement('h3');
+            h3El.textContent = item;
+            contEl.append(h3El);
+        }
+    </script>
+</body>
+</html> 

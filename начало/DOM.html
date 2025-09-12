@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header {
+            background-color: blueviolet;
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content"></div>
+    <script>
+        const contentEl = document.querySelector('.content');  //выбирается где будет добавлен элемент. В данном случае в блоке контент.
+        const h1El = document.createElement('h1');  //создаем элемент с заголовком
+        const headerEl = document.createElement('header');  //создаем элемент header
+        headerEl.classList.add('header');
+        headerEl.classList.add('header1');
+
+        const titleEl = document.querySelector('.title');
+        // titleEl.classList.remove('.title');
+
+        headerEl.classList.remove('header1');  //удаление класса
+        console.log(headerEl.classList.contains('header'));  //проверяет есть ли класс
+        headerEl.classList.toggle('header');  //добавляет класс если его нет или удаляет если он есть
+
+        //Способ добавления текста, не рекомендуется, много кода
+        const textNew = document.createTextNode('new text');  //создаем текст
+        headerEl.append(textNew); //добавляем текст туда куда надо
+        
+        //добавление текста, более удобный вариант
+        h1El.textContent = 'Text title';
+        
+        //добавление блоков в элемент, использовать не рекомендуется
+        headerEl.innerHTML = '<span>text header</span>';
+        
+        const userName = 'Kirill';
+
+        headerEl.textContent = `New human ${userName}`;
+
+        h1El.style.color = 'green';  //добавление стилей к элементу
+        h1El.style.backgroundColor = 'black';
+        h1El.style.display = 'inline-block';
+        h1El.style.padding = '10px';
+        h1El.style.borderRadius = '15px';
+
+        contentEl.append(h1El);  //append добавляет блок после блока выше
+        contentEl.prepend(headerEl); //prepend добавляет перед блоком выше
+    </script>
+</body>
+
+</html>

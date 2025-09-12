@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        location
+        window.location():
+        хост(адрес сайта), 
+        href-полная ссылка, 
+        протокол(http, https), 
+        pathname-адрес страницы без html только папки
+
+        history() путешествие вперед и назад по истории посещения. go(-2) вернетна 2 шага назад, go(2) перекинет на 2 шага вперед
+
+        screen() Доступ к экрану пользователя:
+        ширина и высота дисплея пользователя.
+        ориентация: определяет горизонтальный или вертикальный экран
+
+        alert() отображает диалоговое окно
+
+        prompt() возвращает текст, введенный пользователем в диалоговом окне
+
+        open() открывает новое окно
+
+        close() закрывает текущее окно
+
+        setInterval() назначает выполнение функции каждые Х миллисекунд
+
+        clearInterval() отменяет повторяющееся исполнение, установленное с помощью setInterval
+
+        setTimeout утснавливает отложенное выполнение функций
+
+        clearTimeout отменяет setTimeout
+
+    </p>
+
+    <button class="btn" type="button">Жмякни</button>
+    <script>
+        console.log(window);
+
+        const btnEl = document.querySelector('.btn');
+
+        const p = document.querySelector('p');
+
+        btnEl.addEventListener('click', () => {
+            location.reload();
+        })
+
+        const interval = setInterval(() => {
+            console.log("hello");
+        }, 1000) //выводит в консоли привет каждую секунду
+
+        setTimeout(() => {
+            console.log('buy');
+            clearInterval(interval)
+        }, 5000)
+
+        window.onclick = (event) => {
+            console.log('click', event);
+        }
+
+        window.onresize = (event) => {
+            console.log('resize window', {
+                height: event.target.innerHeight,  //перед двоеточием может быть любое название
+                width: event.target.innerWidth
+        });
+        }
+
+        window.ondblclick = (event) => {
+            alert('double click')
+        }
+    </script>
+</body>
+</html>

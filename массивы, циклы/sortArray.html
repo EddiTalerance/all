@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 7;
+        let b = 3;
+
+        if (a>b) {
+            let temp = a;
+            a = b;
+            b = temp;
+        }
+
+        const arr = [7, 3, 9, 4, 5];
+
+        
+        function sort(arr) {
+            for(let i = 0; i < arr.length; i++) {
+                for(let j=0; j < arr.length - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+        console.log(sort(arr));
+    </script>
+</body>
+</html>

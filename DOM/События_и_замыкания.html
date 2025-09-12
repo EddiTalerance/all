@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn">click on me</button>
+
+    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, eaque iure neque, sit in enim aliquam, minima laudantium dolor molestiae doloremque voluptatem ipsam dicta cumque rerum dolores animi culpa quidem.</p>
+    <a href="ya.ru class=">Ссылка</a>
+    <script>
+        const btnEl = document.querySelector('.btn');
+        const textEl = document.querySelector('.text');
+        const linkEl = document.querySelector('.link');
+
+
+
+        // btnEl.addEventListener('click', function (event) {
+        //     console.log(event);
+        // });
+
+
+        // btnEl.addEventListener('click', function () {
+        //     textEl.textContent = 'new text';
+        // });
+
+        // linkEl.addEventListener('load', function (event) {
+        //     event.preventDefault();  //отменяет переход по ссылке
+        // });
+
+        //замыкание
+
+        const counterBox = () => {
+            let counter = 0;
+
+            const increment = () => {
+                counter++;
+                console.log(`Вы нажали ${counter} раз`);
+            }
+
+            return increment;
+        }
+
+        const counterInfo = counterBox();
+        
+        btnEl.addEventListener('click', counterInfo);
+    </script>
+</body>
+</html>

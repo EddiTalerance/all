@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //callback
+        function sum(a, b) {
+            return a + b;
+        }
+
+        function sub(a, b) {
+            return a- b;
+        }
+
+        function calc(a, b, funcName) {
+            return funcName(a, b);
+        }
+
+        console.log(calc(5, 10, sum));
+        console.log(calc(5, 10, sub));
+
+        //setTimeout
+
+        setTimeout(hello, 2000)//время (ms) через сколько выполянется тело функции, выполняется один раз
+        const interval = setInterval(hello, 2000)//время (ms) через сколько выполянется тело функции, выполняется через заданный промежуток времени
+        clearInterval(interval) //Остановка функции
+        function hello() {
+            return console.log('hello');
+        }
+
+        const arr = [1, 2, 3];
+        arr.forEach(element => {
+            console.log(element);
+        });
+
+        
+    </script>
+</body>
+</html>

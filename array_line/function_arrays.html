@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //фильтрация массива
+
+        const array = [1, 2, 3, 4, 5];
+
+        console.log(array.filter(item => item % 2));  //выбрать нечетные
+
+        //выбор товара по цене
+        const productPrice = [1000, 500, 1500, 2000]
+
+        console.log(productPrice.filter(priceInfo));
+
+        function priceInfo(elem) {
+            return elem > 1000;
+        }
+
+
+        let saleAll = [];
+
+        function sale() {
+            productPrice.forEach(element => {
+                if (element > 1000) {
+                    element *= 0.9;
+                    saleAll.push(element);
+                }else{
+                    saleAll
+                        .push(element)
+                    }
+                    saleAll.sort((a, b) => a - b);
+            });
+            return console.log(saleAll);
+        }
+
+        sale();
+
+        //сумма всех элементов
+        console.log(saleAll.reduce((acc, price) => acc + price));
+
+        console.log(array.map(item => item * 0.7)); //скидка
+
+        //сортировка
+
+        console.log(productPrice.sort((a, b) => a - b)); //от меньшего к большему
+        console.log(productPrice.sort((a, b) => b - a));  //от большего к меньшему
+    </script>
+</body>
+</html>
