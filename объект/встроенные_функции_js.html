@@ -7,13 +7,23 @@
 </head>
 <body>
     <p>
-        isNaN()- показывает, является ли данные числом. Это не число
-        parseFloat()- функция на входе принимает строку, а возвращает число с плавающей точкой (дробное). Используется в интерент магазинах с ценами.
-        parseInt()- возвращает число без плавающей точки
-        encodeURI() и encodeURIComponent()- функции кодируют строку, заменяя символы на последовательность символов кодировки utf-8. Кодируются не все символы и все символы соответственно.
-        decodeURI() и decodeURIComponent()- декодируют
+        isNaN()- показывает, является ли данные числом. Это не число<br>
+        parseFloat()- функция на входе принимает строку, а возвращает число с плавающей точкой (дробное). Используется в интерент магазинах с ценами.<br>
+        parseInt()- возвращает число без плавающей точки<br>
+        encodeURI() и encodeURIComponent()- функции кодируют строку, заменяя символы на последовательность символов кодировки utf-8. Кодируются не все символы и все символы соответственно.<br>
+        decodeURI() и decodeURIComponent()- декодируют<br>
     </p>
+    <span></span>
+    <button>Жмяк</button>
     <script>
+        const spanEl = document.querySelector('span');
+        const btn = document.querySelector('button');
+
+        btn.addEventListener('click', () => {
+            let numb = prompt('Введи число с точкой');
+            spanEl.innerHTML = parseInt(numb);
+        })
+
         console.log(isNaN('jibhj'), isNaN('10')); //true, false текст не число-тру, 10 число-фолс
         console.log(isNaN(10));
 
