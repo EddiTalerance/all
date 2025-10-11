@@ -1,0 +1,13 @@
+.day {
+    background-color: aliceblue;
+    color: black;
+}
+
+.night {
+    background-color: rgb(37, 37, 37);
+    color: rgb(211, 211, 178);
+}
+
+body {
+    transition: background-color .3s ease-in-out;
+}

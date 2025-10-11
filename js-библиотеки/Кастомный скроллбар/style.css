@@ -1,0 +1,12 @@
+p {
+    width: 600px;
+    height: 500px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.simplebar-scrollbar::before {
+  background-color: rgb(123, 255, 97);
+}
