@@ -1,52 +1,15 @@
+let editIndex = -1;
+let title, genre, releaseYear, isWatched
 
-
-function handFormSubmit(e) {
-    e.preventDefault()
-
-    const title = document.querySelector('#title').value;
-    const genre = document.querySelector('#genre').value;
-    const releaseYear = document.querySelector('#releaseYear').value;
-    const isWatched = document.querySelector('#isWatched').checked;
-
-
-    const film = {
-        title,
-        genre,
-        releaseYear,
-        isWatched,
-    }
-
-    addFilmToLocalStorage(film)
-}
-
-function addFilmToLocalStorage(film) {
-    const films = JSON.parse(localStorage.getItem('films')) || [];
-    films.push(film);
-    localStorage.setItem('films', JSON.stringify(films));
-
-    renderTable();
-}
-
-function renderTable() {
-    const films = JSON.parse(localStorage.getItem('films')) || [];
-
+document.addEventListener('DOMContentLoaded', () => {
     const filmTableBody = document.querySelector('#film-tbody');
+    title = document.querySelector('#title');
+    genre = document.querySelector('#genre');
+    releaseYear = document.querySelector('#releaseYear');
+    isWatched = document.querySelector('#isWatched');
 
-    filmTableBody.innerHTML = '';
-    films.forEach((film) => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${film.title}</td>
-            <td>${film.genre}</td>
-            <td>${film.releaseYear}</td>
-            <td>${film.isWatched ? "Да" : "Нет"}</td>
-            <td>
-            <button class="edit"">Редактировать</button>
-            <button class="delete">Удалить</button>
-            </td>
-        `;
 
-        title.addEventListener('invalid', (e) => {
+     title.addEventListener('invalid', (e) => {
             if (title.validity.valueMissing) {
                 e.target.setCustomValidity('Введите название фильма');
             } else {
@@ -62,12 +25,15 @@ function renderTable() {
             }
         })
 
-        releaseYear.addEventListener('invalid', (e) => {
-            if (releaseYear.validity.valueMissing) {
+        releaseYear.addEventListener('blur', (e) => {
+            const value = e.target.value;
+            const isValid = /^\d{4}$/.test(value);
+
+            if (value.length === 0) {
                 e.target.setCustomValidity('Введите год фильма');
             } 
-            else if (isNaN(Number(releaseYear.value))) {
-                e.target.setCustomValidity('Должно быть число');
+            else if (!isValid) {
+                e.target.setCustomValidity('Должно быть 4 цифры');
             } else {
                 e.target.setCustomValidity('');
             }
@@ -85,81 +51,138 @@ function renderTable() {
             e.target.setCustomValidity('');
         })
 
-        filmTableBody.appendChild(row);
+
+    filmTableBody.addEventListener('click', (e) => {
+        if (e.target.classList.contains('delete')) {
+            const index = e.target.dataset.index;
+            deleteFilm(index);
+        } else if (e.target.classList.contains('edit')) {
+            const index = e.target.dataset.index;
+            editFilm(index);
+        }
     })
+
+    function deleteFilm(index) {
+        let films = JSON.parse(localStorage.getItem('films'))
+        films.splice(index, 1);
+        localStorage.setItem('films', JSON.stringify(films))
+        if (editIndex === index) {
+            editIndex = -1;
+        } else if (editIndex > index) {
+            editIndex--;
+        }
+        renderTable();
+    }
+
+});
+
+function handFormSubmit(e) {
+    e.preventDefault()
+
+    const title = document.querySelector('#title').value;
+    const genre = document.querySelector('#genre').value;
+    const releaseYear = document.querySelector('#releaseYear').value;
+    const isWatched = document.querySelector('#isWatched').checked;
+
+
+    const film = {
+        title,
+        genre,
+        releaseYear,
+        isWatched,
+    }
+    addFilmToLocalStorage(film)
 }
 
+function addFilmToLocalStorage(film) {
+    let films = JSON.parse(localStorage.getItem('films')) || [];
 
-document.addEventListener('DOMContentLoaded', () => {
-    const deleteFilm = document.querySelectorAll('.delete');
-    const editFilm = document.querySelectorAll('.edit');
+    if (editIndex !== -1) {
+        films[editIndex] = film;
+        editIndex = -1;
+    } else {
+        films.push(film);
+    }
 
-    deleteFilm.forEach((e, i) => {
-        e.addEventListener('click', () => {
-            const films = JSON.parse(localStorage.getItem('films'))
-            films.splice(i, 1);
-            localStorage.setItem('films', JSON.stringify(films));
-            renderTable()
-        });
-    });
+    localStorage.setItem('films', JSON.stringify(films));
+    renderTable();
+}
 
-    editFilm.forEach((e, i) => {
-        e.addEventListener('click', () => {
-            const films = JSON.parse(localStorage.getItem('films'))
-            let title = document.querySelector('#title');
-            let genre = document.querySelector('#genre');
-            let releaseYear = document.querySelector('#releaseYear');
-            let isWatched = document.querySelector('#isWatched');
+function renderTable() {
+        const films = JSON.parse(localStorage.getItem('films')) || [];
 
-            title.value = films[i].title;
-            genre.value = films[i].genre;
-            releaseYear.value = films[i].releaseYear;
-            if (films[i].isWatched === true) {
-                isWatched.checked = true;
-            }else{
-                isWatched.checked = false;
-            }
+        const filmTableBody = document.querySelector('#film-tbody');
 
-            films.splice(i, 1);
-            localStorage.setItem('films', JSON.stringify(films));
+        filmTableBody.innerHTML = '';
+        films.forEach((film, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${film.title}</td>
+                <td>${film.genre}</td>
+                <td>${film.releaseYear}</td>
+                <td>${film.isWatched ? "Да" : "Нет"}</td>
+                <td>
+                <button class="edit" data-index="${index}">Редактировать</button>
+                <button class="delete" data-index="${index}">Удалить</button>
+                </td>
+            `;
+
+            filmTableBody.appendChild(row);
         })
-    })
-    
-    const btnSort = document.querySelector('#btn-sort-films');
-    const selectSort = document.querySelector('#select-sort-films');
+    }
 
-    btnSort.addEventListener('click', (e) => {
-        const sortBy = selectSort.value;
-    
-        let films = JSON.parse(localStorage.getItem('films')) || [];
-         
-        if (sortBy === 'Название') {
-            films.sort((a, b) => {
-                if (a.title < b.title) return -1;
-                if (a.title > b.title) return 1;
-                return 0
-            });
-        }   
-         
-        else if (sortBy === 'Жанр') {
-            films.sort((a, b) => {
-                if (a.genre < b.genre) return -1;
-                if (a.genre > b.genre) return 1;
-                return 0
-            });
-        }   
-         
-        else if (sortBy === 'Год') {
-            films.sort((a, b) => {
-                if (a.releaseYear < b.releaseYear) return -1;
-                if (a.releaseYear > b.releaseYear) return 1;
-                return 0
-            });
-        }   
-    
-        localStorage.setItem('films', JSON.stringify(films));
-        renderTable();
-    });
+function editFilm(index) {
+    const films = JSON.parse(localStorage.getItem('films'));
+    if (index < 0 || index >= films.length) {
+        editIndex = -1;
+        return
+    }
+
+    editIndex=index;
+    title.value = films[index].title;
+    genre.value = films[index].genre;
+    releaseYear.value = films[index].releaseYear;
+    if (films[index].isWatched === true) {
+        isWatched.checked = true;
+    } else {
+        isWatched.checked = false;
+    }
+}
+
+const btnSort = document.querySelector('#btn-sort-films');
+const selectSort = document.querySelector('#select-sort-films');
+
+btnSort.addEventListener('click', (e) => {
+    const sortBy = selectSort.value;
+
+    let films = JSON.parse(localStorage.getItem('films')) || [];
+
+    if (sortBy === 'Название') {
+        films.sort((a, b) => {
+            if (a.title < b.title) return -1;
+            if (a.title > b.title) return 1;
+            return 0
+        });
+    }
+
+    else if (sortBy === 'Жанр') {
+        films.sort((a, b) => {
+            if (a.genre < b.genre) return -1;
+            if (a.genre > b.genre) return 1;
+            return 0
+        });
+    }
+
+    else if (sortBy === 'Год') {
+        films.sort((a, b) => {
+            if (a.releaseYear < b.releaseYear) return -1;
+            if (a.releaseYear > b.releaseYear) return 1;
+            return 0
+        });
+    }
+
+    localStorage.setItem('films', JSON.stringify(films));
+    renderTable();
 });
 
 
