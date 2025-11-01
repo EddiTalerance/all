@@ -1,5 +1,20 @@
 let editIndex = -1;
-let title, genre, releaseYear, isWatched
+let title, genre, releaseYear, isWatched;
+const addBtn = document.querySelector('#add-btn');
+const cancel = document.querySelector('#cancel-edit');
+
+function clearForm() {
+    title.value = '';
+    genre.value = '';
+    releaseYear.value = '';
+    isWatched.checked = false;
+}
+
+cancel.addEventListener('click', () => {
+    clearForm();
+    addBtn.innerHTML = 'Добавить';
+    cancel.classList.add('hidden');
+})
 
 document.addEventListener('DOMContentLoaded', () => {
     const filmTableBody = document.querySelector('#film-tbody');
@@ -59,6 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (e.target.classList.contains('edit')) {
             const index = e.target.dataset.index;
             editFilm(index);
+            addBtn.innerHTML = 'Обновить';
+            cancel.classList.toggle('hidden');
         }
     })
 
@@ -91,7 +108,11 @@ function handFormSubmit(e) {
         releaseYear,
         isWatched,
     }
-    addFilmToLocalStorage(film)
+    addBtn.innerHTML = 'Добавить';
+
+    clearForm();
+    cancel.classList.add('hidden');
+    addFilmToLocalStorage(film);
 }
 
 function addFilmToLocalStorage(film) {

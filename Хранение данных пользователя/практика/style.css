@@ -43,6 +43,10 @@ form input[type="submit"]:hover {
   cursor: pointer;
 }
 
+.hidden {
+  display: none;
+}
+
 table {
   width: 100%;
   background-color: #fff;
