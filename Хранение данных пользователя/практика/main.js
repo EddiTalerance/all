@@ -2,6 +2,7 @@ let editIndex = -1;
 let title, genre, releaseYear, isWatched;
 const addBtn = document.querySelector('#add-btn');
 const cancel = document.querySelector('#cancel-edit');
+let index;
 
 function clearForm() {
     title.value = '';
@@ -14,6 +15,8 @@ cancel.addEventListener('click', () => {
     clearForm();
     addBtn.innerHTML = 'Добавить';
     cancel.classList.add('hidden');
+    editIndex = -1;
+    console.log(index);
 })
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -75,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const index = e.target.dataset.index;
             editFilm(index);
             addBtn.innerHTML = 'Обновить';
-            cancel.classList.toggle('hidden');
+            cancel.classList.remove('hidden');
         }
     })
 
