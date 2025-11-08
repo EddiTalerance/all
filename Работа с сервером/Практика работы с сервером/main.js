@@ -10,7 +10,7 @@ function handleFormSubmit(e) {
         title,
         genre,
         releaseYear,
-        isWatched,
+        isWatched
     }
 
     addFilm(film);
@@ -53,6 +53,6 @@ async function renderTable() {
     })
 }
 
-document.querySelector('#film-tbody').addEventListener('submit', handleFormSubmit);
+document.querySelector('#film-form').addEventListener('submit', handleFormSubmit);
 
 renderTable()
