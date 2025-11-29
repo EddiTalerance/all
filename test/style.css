@@ -1,0 +1,30 @@
+/* Стили для таблицы 3x4 */
+#table-3x4 {
+	border-collapse: collapse; /* Убирает промежутки между границами ячеек */
+	border-spacing: 0;        /* На всякий случай обнуляем отступы */
+}
+
+#table-3x4 td,
+#table-3x4 th {
+	border: 1px solid #333; /* Видимая граница ячейки */
+	padding: 6px 8px;
+	overflow: hidden;        /* Защита от переполнения содержимого */
+	white-space: nowrap;     /* Обрезаем в одну строку */
+	text-overflow: ellipsis; /* Показываем многоточие при обрезке */
+}
+
+/* Ширина таблицы — растягиваем по ширине контейнера, чтобы не вызывать горизонтальный скролл */
+#table-3x4 {
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	display: table;
+	table-layout: fixed; /* Фиксированное распределение ширины колонок — нужно для корректной работы ellipsis */
+}
+
+/* Высота всех строк — 3em */
+#table-3x4 tr td {
+	height: 3em;
+	line-height: 3em; /* Выравнивание содержимого по вертикали */
+}
+

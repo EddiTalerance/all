@@ -1,25 +1,28 @@
-const text1 = document.querySelector('#text');
-const text2 = document.querySelector('#text2');
-const number = document.querySelector('#number');
-const textAll = document.querySelector('#text-all');
-const btn = document.querySelector('#number');
-const form = document.querySelector('#form');
+let b = {
+    a: null,
+    b: null,
+    c: null,
+    d: null
+}
 
-const arr = [];
+b.a = 3;
+console.log(b)
 
-addArr => [
-    {title1: `${text1}`,
-    title2: `${text2}`},
-    textAll
-]
+const table = document.querySelector('#table-3x4');
+const cells = table ? table.querySelectorAll('td') : [];
+const in1 = document.querySelector('#input-1');
+const in2 = document.querySelector('#input-2');
+const in3 = document.querySelector('#input-3');
+const in4 = document.querySelector('#input-4');
+const btn = document.querySelector('#fill-btn');
+
+btn.addEventListener('click', () => {
+    b.a = in1.value;
+    b.b = in2.value;
+    b.c = in3.value;
+    b.d = in4.value;
+    console.log(b)
+});
 
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    textAll.value += text1.value;
-    textAll.value += ' ';
-    textAll.value += text2.value;
-    textAll.value += ' ';
-    textAll.value += number.value;
-    console.log(addArr);
-})
+
