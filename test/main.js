@@ -1,15 +1,7 @@
-let b = {
-    a: null,
-    b: null,
-    c: null,
-    d: null
-}
+let b = {}
 
-b.a = 3;
-console.log(b)
 
 const table = document.querySelector('#table-3x4');
-const cells = table ? table.querySelectorAll('td') : [];
 const in1 = document.querySelector('#input-1');
 const in2 = document.querySelector('#input-2');
 const in3 = document.querySelector('#input-3');
@@ -17,11 +9,25 @@ const in4 = document.querySelector('#input-4');
 const btn = document.querySelector('#fill-btn');
 
 btn.addEventListener('click', () => {
+    const row = document.createElement('tr');
+    
     b.a = in1.value;
     b.b = in2.value;
     b.c = in3.value;
     b.d = in4.value;
-    console.log(b)
+    const values = Object.values(b)
+    
+    for (let i = 0; i < Object.keys(b).length; i++) {
+        const cell = document.createElement('td');
+        cell.innerHTML = values[i];
+        row.appendChild(cell);
+    }
+    table.appendChild(row);
+
+    in1.value = innerHTML = '';
+    in2.value = innerHTML = '';
+    in3.value = innerHTML = '';
+    in4.value = innerHTML = '';
 });
 
 
