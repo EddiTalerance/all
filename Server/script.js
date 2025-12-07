@@ -163,14 +163,59 @@ document.getElementById("delete-all").addEventListener('click', () => {
 //         })
 // }
 
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+function checkTable(delay = 1000) {
+    setTimeout(() => {
+      const rows = document.querySelectorAll('#film-tbody tr');
+      
+      if(rows.length > 0) {
+        filterFilms();
+        }else{
+          const nextDelay = Math.min(delay * 1.5, 5000);
+          checkTable(nextDelay);
+        }
+    }, delay);
+}
+
+checkTable();
+
+  const filmTableBody = document.getElementById("film-table");
+
+  function filterFilms() {
+      const headers = Array.from(filmTableBody.querySelectorAll('thead th'))
+      .map(th => th.textContent.trim())
+      .slice(0, -1);
+
+      console.log(headers);
+
+      const rows = document.querySelectorAll('#film-tbody tr');
+      const result = [];
+
+      rows.forEach(row => {
+        const cells =row.querySelectorAll('td');
+        const obj = {};
+
+        headers.forEach((header, index) => {
+          let value = cells[index].textContent.trim();
+          obj[header] = value; 
+        });
+        result.push(obj)
+      })
+      return result;
+  }
+  filterFilms()
+})
+
+
 document
 .getElementById("film-form")
 .addEventListener("submit", handleFormSubmit);
 
 renderTable();
 deleteFilm()
-
-// // Добавьте эти функции в ваш script.js
 
 // // Функция фильтрации фильмов
 // function filterFilms(films) {
